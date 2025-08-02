@@ -64,42 +64,50 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Pie Chart (円グラフ)")
     fig_pie = px.pie(categorical_data, values='value', names='category', title="Sample Pie Chart")
+    fig_pie.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_pie, use_container_width=True)
 
     st.subheader("Line Chart (折れ線グラフ)")
     fig_line = px.line(time_series_data, x='date', y='value', color='category', title="Sample Line Chart")
+    fig_line.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_line, use_container_width=True)
 
     st.subheader("Bar Chart (棒グラフ)")
     fig_bar = px.bar(categorical_data, x='category', y='value', title="Sample Bar Chart")
+    fig_bar.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_bar, use_container_width=True)
 
     st.subheader("Area Chart (面グラフ)")
     fig_area = px.area(time_series_data, x='date', y='value', color='category', title="Sample Area Chart")
+    fig_area.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_area, use_container_width=True)
 
     st.subheader("Horizontal Bar Chart (帯グラフ)")
     fig_hbar = px.bar(categorical_data, x='value', y='category', orientation='h', title="Sample Horizontal Bar Chart")
+    fig_hbar.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_hbar, use_container_width=True)
 
 with col2:
     st.subheader("Histogram (ヒストグラム)")
     fig_hist = px.histogram(scatter_data, x='x', nbins=20, title="Sample Histogram")
+    fig_hist.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_hist, use_container_width=True)
 
     st.subheader("Bubble Chart (バブルチャート)")
     bubble_data = scatter_data.head(20).copy()
     fig_bubble = px.scatter(bubble_data, x='x', y='y', size='size', color='color', 
                            title="Sample Bubble Chart", size_max=60)
+    fig_bubble.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_bubble, use_container_width=True)
 
     st.subheader("Scatter Plot (散布図)")
     fig_scatter = px.scatter(scatter_data, x='x', y='y', color='color', title="Sample Scatter Plot")
+    fig_scatter.update_layout(plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_scatter, use_container_width=True)
 
     st.subheader("Doughnut Chart (ドーナツグラフ)")
     fig_donut = go.Figure(data=[go.Pie(labels=categorical_data['category'], values=categorical_data['value'], hole=.3)])
-    fig_donut.update_layout(title_text="Sample Doughnut Chart")
+    fig_donut.update_layout(title_text="Sample Doughnut Chart", plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
     st.plotly_chart(fig_donut, use_container_width=True)
 
     st.subheader("Radar Chart (レーダーチャート)")
@@ -126,7 +134,9 @@ with col2:
                 visible=True,
                 range=[0, 5]
             )),
-        title="Sample Radar Chart"
+        title="Sample Radar Chart",
+        plot_bgcolor='#FAFAFA',
+        paper_bgcolor='#FAFAFA'
     )
     st.plotly_chart(fig_radar, use_container_width=True)
 
@@ -138,7 +148,7 @@ X, Y = np.meshgrid(x, y)
 Z = np.sin(X) * np.cos(Y)
 
 fig_contour = go.Figure(data=go.Contour(z=Z, x=x, y=y))
-fig_contour.update_layout(title="Sample Contour Chart")
+fig_contour.update_layout(title="Sample Contour Chart", plot_bgcolor='#FAFAFA', paper_bgcolor='#FAFAFA')
 st.plotly_chart(fig_contour, use_container_width=True)
 
 # Additional information
